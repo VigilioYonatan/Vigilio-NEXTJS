@@ -1,11 +1,10 @@
 import next from "next";
-import { createServer } from "http";
-import { parse } from "url";
+import { createServer } from "node:http";
+import { parse } from "node:url";
 import { connectDB } from "./src/services";
 
-const port = parseInt(process.env.PORT || "3000", 10);
+const port = Number.parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
-console.log({ dev: process.env.NODE_ENV });
 
 async function main() {
     try {
@@ -22,6 +21,7 @@ async function main() {
             const parsedUrl = parse(req.url!, true);
             handle(req, res, parsedUrl);
         }).listen(port);
+        // biome-ignore lint/suspicious/noConsoleLog: <explanation>
         console.log(
             `> Server listening at http://localhost:${port} as ${
                 dev ? "development" : process.env.NODE_ENV

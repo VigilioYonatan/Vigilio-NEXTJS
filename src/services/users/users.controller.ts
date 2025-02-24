@@ -1,10 +1,18 @@
-import { Body, Delete, Get, HttpCode, Param, Post, Put } from "~/decorator";
 import { UsersService } from "./users.service";
-import { Injectable } from "~/decorator/decorators/injectable.decorator";
-import { Pipe, Validator } from "~/decorator/validator/valibot";
 import { objectAsync, string } from "@vigilio/valibot";
-import { type UsersStoreDto, usersStoreDto } from "./dtos/users.store.dto";
+import {
+    Body,
+    Delete,
+    Get,
+    HttpCode,
+    Injectable,
+    Param,
+    Post,
+    Put,
+} from "@vigilio/next-api";
+import { Pipe, Validator } from "@vigilio/next-api/validator/valibot";
 import { type UsersUpdateDto, usersUpdateDto } from "./dtos/users.update.dto";
+import { type UsersStoreDto, usersStoreDto } from "./dtos/users.store.dto";
 
 @Injectable()
 export class UsersController {

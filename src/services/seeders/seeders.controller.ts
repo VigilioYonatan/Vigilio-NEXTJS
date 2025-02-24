@@ -1,5 +1,4 @@
-import { Get } from "~/decorator";
-import { Injectable } from "~/decorator/decorators/injectable.decorator";
+import { Get, Injectable } from "@vigilio/next-api";
 import { SeedersService } from "./seeders.service";
 
 @Injectable()

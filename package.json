@@ -4,17 +4,22 @@
     "private": true,
     "scripts": {
         "dev": "cross-env TURBOPACK=1  ts-node -r tsconfig-paths/register --project   tsconfig.server.json index.ts --turbopack",
-        "build": "next build",
-        "start": "next start",
+        "build": "next build  && tsc --project tsconfig.server.json",
+        "start": "cross-env NODE_ENV=production node dist/index.js",
         "lint": "next lint",
         "db:migrate": "sequelize-cli db:migrate",
         "db:migration:generate": "sequelize-cli migration:generate --name",
         "db:migrate:undo": "sequelize-cli db:migrate:undo",
         "db:migrate:refresh": "sequelize-cli db:migrate:undo:all && sequelize-cli db:migrate",
-        "db:migrate:fresh": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate"
+        "db:migrate:fresh": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate",
+        "biome:format": "biome format --write ./src",
+        "biome:lint": "biome lint --write ./src",
+        "biome:check": "biome format --write ./src",
+        "biome:all": "npm run biome:format && npm run biome:lint && npm run biome:check"
     },
     "dependencies": {
         "@faker-js/faker": "^9.5.0",
+        "@vigilio/next-api": "^0.0.4",
         "@vigilio/valibot": "^0.1.1",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.14.1",

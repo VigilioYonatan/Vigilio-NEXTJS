@@ -1,8 +1,8 @@
 import enviroments from "~/config/environment";
-import { UnauthorizedException } from "~/decorator";
 import { usersSeeders } from "@/users/users.seeder";
 import { UsersEntity } from "@/users/users.entity";
 import { sequelize } from "..";
+import { UnauthorizedException } from "@vigilio/next-api";
 
 export class SeedersService {
     async index() {

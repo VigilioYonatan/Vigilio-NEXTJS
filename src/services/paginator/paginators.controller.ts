@@ -1,10 +1,9 @@
-import { Injectable } from "~/decorator/decorators/injectable.decorator";
 import { custom, objectAsync, string } from "@vigilio/valibot";
-import type { Request } from "express";
-import { Pipe } from "~/decorator/validator/valibot";
-import { PaginatorService } from "./paginators.service";
 import { paginatorModel, type PaginatorModel } from "./libs";
-import { Get, Param, Query, Req } from "~/decorator";
+import { PaginatorService } from "./paginators.service";
+import type { Request } from "express";
+import { Get, Injectable, Param, Query, Req } from "@vigilio/next-api";
+import { Pipe } from "@vigilio/next-api/validator/valibot";
 
 @Injectable()
 export class PaginatorController {

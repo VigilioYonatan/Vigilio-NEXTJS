@@ -1,8 +1,8 @@
 import { UsersEntity } from "~/services";
 import { UsersStoreDto } from "./dtos/users.store.dto";
-import { BadRequestException, NotFoundException } from "~/decorator";
 import { UsersUpdateDto } from "./dtos/users.update.dto";
 import { Op } from "sequelize";
+import { BadRequestException, NotFoundException } from "@vigilio/next-api";
 
 export class UsersService {
     async index() {
@@ -34,14 +34,12 @@ export class UsersService {
 
     async update(id: string, body: UsersUpdateDto) {
         const { user } = await this.show(id);
-        console.log({ body });
-
         const [existUserWithEmal] = await Promise.all([
             UsersEntity.findOne({
                 where: {
                     email: body.email,
                     [Op.not]: {
-                        // que busque un usuario que no tenga mismo  email, que omita el mio
+                        // que busque un usuario que no tenga mismo  email, que omita el actual
                         id: user.id,
                     },
                 },

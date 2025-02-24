@@ -1,9 +1,8 @@
-import { type PaginatorModel } from "./libs";
-import { Op, type WhereOptions } from "sequelize";
+import type { PaginatorModel } from "./libs";
 import type { Request } from "express";
-import { Injectable } from "~/decorator/decorators";
-import { InternalServerErrorException } from "~/decorator";
+import { Op, type WhereOptions } from "sequelize";
 import { UsersEntity } from "@/users/users.entity";
+import { Injectable, InternalServerErrorException } from "@vigilio/next-api";
 
 @Injectable()
 export class PaginatorService {
@@ -32,7 +31,7 @@ export class PaginatorService {
         switch (props.model) {
             case "users":
                 {
-                    let where: WhereOptions = {
+                    const where: WhereOptions = {
                         name: {
                             [Op.like]: searchLowerCase,
                         },

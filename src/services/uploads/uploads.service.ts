@@ -1,10 +1,4 @@
 import { UsersService } from "@/users/users.service";
-import { BadRequestException } from "~/decorator";
-import {
-    Injectable,
-    validateUpload,
-    ValidationProps,
-} from "~/decorator/decorators";
 import {
     removeFile,
     uploadFiles,
@@ -12,6 +6,12 @@ import {
     UploadsProperties,
 } from "./libs/helpers";
 import { File } from "formidable";
+import {
+    type ValidationProps,
+    validateUpload,
+    BadRequestException,
+    Injectable,
+} from "@vigilio/next-api";
 
 @Injectable()
 export class UploadsService {
@@ -23,9 +23,7 @@ export class UploadsService {
             files: File[];
             filesName: string;
         };
-
         let qualities = {} as { qualities: number[] | null; directory: string };
-
         switch (entity) {
             case "users":
                 if (property === "photo") {
@@ -36,7 +34,6 @@ export class UploadsService {
                     );
                 }
                 break;
-
             default: {
                 throw new BadRequestException(
                     "Error server, comunicarse con desarrollador"
@@ -49,7 +46,6 @@ export class UploadsService {
             name,
             ...qualities,
         });
-
         return {
             success: true,
             files: responseFile,
