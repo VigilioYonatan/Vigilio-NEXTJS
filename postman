@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "7898ae49-33dd-4d9d-86c1-cd0f13a22836",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19723385"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"yonatan\",\r\n    \"email\":\"yonatan2@gmail.com\",\r\n    \"age\":18,\r\n    \"role\":\"admin\",\r\n    \"enabled\":false,\r\n    \"hobbies\":[\"jugar futbol\",\"hacer musica\"],\r\n    \"address\":{\r\n        \"code\":\"00\",\r\n        \"zip\":\"00\"\r\n    },\r\n    \"photo\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/101",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"yonatan\",\r\n    \"email\":\"yonatan@gmail.com\",\r\n    \"age\":18,\r\n    \"role\":\"admin\",\r\n    \"enabled\":false,\r\n    \"hobbies\":[\"jugar voley\",\"meditar\"],\r\n    \"address\":{\r\n        \"code\":\"00\",\r\n        \"zip\":\"00\"\r\n    },\r\n    \"photo\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seed",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/seed",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"seed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "paginators",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/paginator/users?limit=10",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"paginator",
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "uploads",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/vigilio/Downloads/astronaut-_1_.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/uploads/users/photo",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"uploads",
+								"users",
+								"photo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

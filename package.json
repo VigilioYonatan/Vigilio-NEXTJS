@@ -1,24 +1,49 @@
 {
-  "name": "next-api2",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.7"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1"
-  }
+    "name": "next-api2",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "cross-env TURBOPACK=1  ts-node -r tsconfig-paths/register --project   tsconfig.server.json index.ts --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "db:migrate": "sequelize-cli db:migrate",
+        "db:migration:generate": "sequelize-cli migration:generate --name",
+        "db:migrate:undo": "sequelize-cli db:migrate:undo",
+        "db:migrate:refresh": "sequelize-cli db:migrate:undo:all && sequelize-cli db:migrate",
+        "db:migrate:fresh": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate"
+    },
+    "dependencies": {
+        "@faker-js/faker": "^9.5.0",
+        "@vigilio/valibot": "^0.1.1",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.14.1",
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "formidable": "^3.5.2",
+        "mysql2": "^3.12.0",
+        "next": "15.1.7",
+        "path-to-regexp": "^6.2.1",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "reflect-metadata": "^0.2.2",
+        "sequelize": "^6.37.5",
+        "sequelize-typescript": "^2.1.6"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.9.4",
+        "@types/express": "^5.0.0",
+        "@types/formidable": "^3.4.5",
+        "@types/next": "^9.0.0",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "postcss": "^8",
+        "sequelize-cli": "^6.6.2",
+        "tailwindcss": "^3.4.1",
+        "ts-node": "^10.9.2",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5"
+    }
 }

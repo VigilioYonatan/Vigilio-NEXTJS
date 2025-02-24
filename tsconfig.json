@@ -1,22 +1,27 @@
 {
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "strictPropertyInitialization": false,
+        "emitDecoratorMetadata": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "paths": {
+            "@/*": ["./src/services/*"],
+            "~/*": ["./src/*"]
+        }
+    },
+    "include": ["./src/**/*.ts", "./src/**/*.tsx", "index.ts"],
+    "exclude": ["node_modules"]
 }
